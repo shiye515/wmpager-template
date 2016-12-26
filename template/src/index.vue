@@ -9,7 +9,6 @@
                 <div class="name">{{item.name}}</div>
             </div>
         </div>
-        <pre>{{JSON.stringify(this.shops, null, '    ')}}</pre>
         <slot></slot>
     </div>
 </template>
