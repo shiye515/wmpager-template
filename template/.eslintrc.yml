@@ -117,7 +117,8 @@ rules:
     - "nofunc"
   brace-style:
     - 1
-    - "stroustrup"
+    - "1tbs"
+    # - "stroustrup"
     - {}
   comma-spacing:
     - 2

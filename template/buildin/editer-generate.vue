@@ -5,8 +5,11 @@
             <config v-for="(v, key) in value" :value="v" :k="key" @input="updateTree"></config>
         </div>
         <div v-if="type === 'array'" class="config-sub array">
-            <config v-for="(v, key) in value" :value="v" :k="key" @input="updateTree"></config>
-            <button @click="value.push('')">添加一行</button>
+            <div v-for="(v, key) in value">
+                <config :value="v" :k="key" @input="updateTree"></config>
+                <button @click="value.splice(key, 1)" class="config-array-del">删除本行</button>
+            </div>
+            <button @click="value.push('')" class="config-array-add">添加一行</button>
         </div>
         <div v-if="type === 'number'">
             <input type="number" :value="value" @input="updateValue(parseFloat($event.target.value, 10))">
@@ -43,8 +46,7 @@ export default {
                 key = parseInt(key, 10);
                 tree = this.value.slice();
                 tree[key] = value;
-            }
-            else {
+            } else {
                 tree = Object.assign({}, this.value, {
                     [key]: value
                 });
@@ -60,5 +62,14 @@ export default {
 .config-sub {
     padding-left: 10px;
     border-left: 5px solid #999;
+}
+
+.config-array-del {
+    background: red;
+}
+
+.config-array-add {
+    margin-top: 10px;
+    background: lightseagreen;
 }
 </style>

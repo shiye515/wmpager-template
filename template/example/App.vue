@@ -2,7 +2,7 @@
     <div id="root">
         <div class="iphone">
             <div class="component">
-                <com :config="config" ref="reft"></com>
+                <com :config="config"></com>
             </div>
         </div>
         <div class="editer">
@@ -23,23 +23,17 @@ export default {
     data() {
         return {
             config: {
-                a: 'aa',
-                b: 2,
-                c: {
-                    d: 3,
-                    e: [1]
-                }
+                id: 1,
+                shops: [1605305189, 1553633158, 1720591081, 1471089684, 1653861474]
             }
         };
     },
     methods: {
         updateTree(key, value) {
             this.config = value;
-            // Object.assign(this.config, value);
         }
     },
     mounted() {
-        // console.log(this.$refs.reft);
         this.$bus.$on('xxx', value => {
             this.config = value;
         });
@@ -62,7 +56,7 @@ body {
     border-radius: 15px;
     width: 375px;
     height: 667px;
-    overflow: hidden;
+    overflow: auto;
     margin: 10px;
 }
 
