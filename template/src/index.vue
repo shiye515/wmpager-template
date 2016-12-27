@@ -1,12 +1,12 @@
 <template>
     <div class="com" v-if="!shops">loading</div>
     <div class="com" v-else>
-        <div>{{config.shops}}</div>
+        <div>\{{config.shops}}</div>
         <div class="shop" v-for="(shop, id) in shops">
-            <h1>商户id：{{id}}</h1>
+            <h1>商户id：\{{id}}</h1>
             <div class="item" v-for="item in shop">
                 <img :src="item.url + '@w_50,h_50,s_2,q_90'" alt="">
-                <div class="name">{{item.name}}</div>
+                <div class="name">\{{item.name}}</div>
             </div>
         </div>
         <slot></slot>

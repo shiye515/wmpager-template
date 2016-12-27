@@ -1,6 +1,6 @@
 <template>
     <div class="config">
-        <h1>{{k}}</h1>
+        <h1>\{{k}}</h1>
         <div v-if="type === 'object'" class="config-sub">
             <config v-for="(v, key) in value" :value="v" :k="key" @input="updateTree"></config>
         </div>
